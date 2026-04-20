@@ -21,9 +21,8 @@ function Workout() {
     }
 
     function HandleEndButton(){
-
         setDuration((timeEnd - timeStart)/1000);
-        axios.get("http://localhost:8000/Workout-Complete", {params:{workoutDuration: }});
+        axios.get("http://localhost:8000/Workout-Complete", {params:{workoutDuration: duration}});
         setEnd(true);
         setStart(false);
     }
