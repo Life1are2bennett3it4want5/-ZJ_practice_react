@@ -1,6 +1,9 @@
-import { useRef, useState } from 'react'
-import Banner from '../components/navBanner.tsx'
-import '../index.css'
+import { useRef, useState } from 'react';
+import Banner from '../components/navBanner.tsx';
+import '../index.css';
+import axios from "axios";
+import { useNavigate } from 'react-router-dom';
+
 function Workout() {
     const [start, setStart] = useState(false);
     const [end, setEnd] = useState(false);
@@ -8,6 +11,7 @@ function Workout() {
     const [timeEnd, setTimeEnd] = useState(0.0);
     const [duration, setDuration] = useState(0.0);
     const intervalRef = useRef(0.0);
+    const navigate = useNavigate();
 
     function HandleStartButton(){
         setStart(true);
@@ -17,7 +21,9 @@ function Workout() {
     }
 
     function HandleEndButton(){
+
         setDuration((timeEnd - timeStart)/1000);
+        axios.get("http://localhost:8000/Workout-Complete", {params:{workoutDuration: }});
         setEnd(true);
         setStart(false);
     }

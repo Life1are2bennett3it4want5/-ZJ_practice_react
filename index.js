@@ -29,5 +29,5 @@ app.get("/Workout-Complete", async (req,res) => {
     } finally {
         await client.close();
     }
-    res.end("<h1>Hello World!</h1>")
+    res.end("<h1>Your workout took" + req.query.duration + "!</h1>")
 })
