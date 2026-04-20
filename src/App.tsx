@@ -1,8 +1,8 @@
 import { createBrowserRouter, RouterProvider } from "react-router"
 import Page1 from "./pages/page1";
-import Page2 from "./pages/page2";
 import Page3 from "./pages/page3";
 import Workout from "./pages/workout";
+import TanstackQueryPage  from "./pages/tanstackQuery";
 
 function App() {
   const router = createBrowserRouter([
@@ -16,7 +16,7 @@ function App() {
     },
     {
       path: "/page2",
-      element: <Page2/>
+      element: <TanstackQueryPage/>
     },
     {
       path: "/page3",

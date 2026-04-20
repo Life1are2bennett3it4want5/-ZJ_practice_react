@@ -1,9 +1,9 @@
-import Header_banner from "../components/navBanner"
+import Banner from "../components/navBanner"
 
 function Page1() {
     return(
         <div>
-            <Header_banner />
+            <Banner />
             <h2>This is Page 1</h2>
         </div>
         

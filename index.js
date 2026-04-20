@@ -1,6 +1,6 @@
 import express from "express";
 import bodyParser from "body-parser";
-import { MongoClient, ServerApiVersion } from "mongodb";
+const { MongoClient, ServerApiVersion } = require("mongodb");
 
 const uri = "mongodb://localhost:27017/";
 const client = new MongoClient(uri, {
@@ -22,10 +22,8 @@ app.get("/Workout-Complete", async (req,res) => {
         await client.connect();
         const myDB = client.db("pracZJ");
         const myCollection = myDB.collection("ZJL");
+        await myCollection.insertOne({workoutDuration: req.query.duration});
 
-        await myCollection.insertOne({
-            workoutDuration: req.query.duration
-        });
     } finally {
         await client.close();
     }
